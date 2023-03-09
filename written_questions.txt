@@ -1,0 +1,13 @@
+1. How many ways can you segment a hashtag with length n?
+This can be solved by looking at a few examples:
+a: a => 1 way
+an: a-n, an => 2 ways
+car: c-a-r, c-ar, c-ar, car => 4 ways
+care: c-a-r-e, c-a-re, c-ar-e, ca-r-e, c-are, ca-re, car-e, care => 8
+cares: c-a-r-e-s, c-a-r-es, c-a-re-s, c-ar-e-s, ca-r-e-s, c-a-res, c-ar-es, c-are-s, ca-r-es, ca-re-s, car-e-s, c-ares, ca-res, car-es, care-s, cares => 16
+By looking at this progression: 1 -> 2 -> 4 -> 8 -> 16, it is clear that this is an exponential progression. Specifically, for a hashtag with length n,
+the amount of ways to segment it is 2^(n-1).
+
+2. What are the time and space complexity for your solution?
+The time complexity for my solution is O(n^2), as it only searches for all possible words in the hashtag and stores the results of those searches in a separate array.
+The space complexity is O(n) as it only stores the best option for each index of the input string.
